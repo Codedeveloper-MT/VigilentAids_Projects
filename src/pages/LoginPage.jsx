@@ -3,22 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 import { TextToSpeech } from "@capacitor-community/text-to-speech";
 import { App } from "@capacitor/app";
+import { Storage } from "@capacitor/storage";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
+import "../styles/LoginPage.css";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
-
+  const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init();
     speak("You are on the login page. Please enter your username and password.");
+
+   
+    const loadStoredCredentials = async () => {
+      const { value } = await Storage.get({ key: "loginData" });
+      if (value) {
+        const saved = JSON.parse(value);
+        setFormData(saved);
+      }
+    };
+    loadStoredCredentials();
 
     const backHandler = App.addListener("backButton", () => {
       if (window.history.length > 1) {
@@ -53,6 +61,17 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!formData.username || !formData.password) {
+      const errorMessage = "Please fill in both username and password.";
+      setMessage(errorMessage);
+      await speak(errorMessage);
+      return;
+    }
+    await Storage.set({
+      key: "loginData",
+      value: JSON.stringify(formData),
+    });
+
     try {
       const response = await axios.post("http://localhost:5000/api/login", formData);
       if (response.data.success) {
@@ -82,8 +101,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="login-container">
+      <div className="login-box">
         <h2>VigilentAids</h2>
         {message && <p>{message}</p>}
 

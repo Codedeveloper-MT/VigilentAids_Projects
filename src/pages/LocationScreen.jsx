@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextToSpeech } from "@capacitor-community/text-to-speech";
 import { App } from "@capacitor/app";
-//import "../styles/LocationScreen.css";
+import "../styles/LocationScreen.css";
 
 const LocationScreen = () => {
   const [coordinates, setCoordinates] = useState(null);

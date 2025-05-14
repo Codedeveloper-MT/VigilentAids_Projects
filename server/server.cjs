@@ -112,6 +112,36 @@ app.get("/api/location/:id", (req, res) => {
   });
 });
 
+// Get user info
+app.get("/api/user/:username", (req, res) => {
+  db.query("SELECT * FROM user WHERE username = ?", [req.params.username], (err, result) => {
+    if (err) return res.status(500).json({ error: "Database error" });
+    if (!result.length) return res.status(404).json({ error: "User not found" });
+    res.json(result[0]);
+  });
+});
+
+// Update user info
+app.put("/api/user/:username", (req, res) => {
+  const { country, cell_number, password } = req.body;
+  db.query(
+    "UPDATE user SET country=?, cell_number=?, password=? WHERE username=?",
+    [country, cell_number, password, req.params.username],
+    (err, result) => {
+      if (err) return res.status(500).json({ error: "Database error" });
+      res.json({ message: "Account updated successfully." });
+    }
+  );
+});
+
+// Delete user
+app.delete("/api/user/:username", (req, res) => {
+  db.query("DELETE FROM user WHERE username = ?", [req.params.username], (err, result) => {
+    if (err) return res.status(500).json({ error: "Database error" });
+    res.json({ message: "Account deleted." });
+  });
+});
+
 // Function to Save Location
 const saveLocation = async () => {
   if (!coordinates) {

@@ -1,0 +1,89 @@
+/* RouteScreen.css */
+
+/* Main container */
+.route-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F1FAEE; /* light background */
+  font-family: Arial, sans-serif;
+  color: #1A1A1A;
+}
+
+/* Map container */
+.map-container {
+  height: 50vh;
+  width: 100%;
+  z-index: 1;
+  border-bottom: 2px solid #1A1A1A;
+}
+
+/* Route content area */
+.route-content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #F1FAEE;
+}
+
+/* Input field styling (extra since you also style inline in JSX) */
+.route-content input {
+  border: 1px solid #1A1A1A;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Custom Button style */
+button {
+  padding: 10px 20px;
+  background-color: #E63946; /* primary action */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d12839;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Back button style */
+.back-button {
+  background-color: #1A1A1A;
+  color: #F1FAEE;
+}
+
+.back-button:hover {
+  background-color: #333;
+}
+
+/* Error message */
+.error-message {
+  color: #E63946;
+  background-color: #ffeaea;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #E63946;
+}
+
+/* Route summary display */
+.route-summary {
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #1A1A1A;
+  border-radius: 6px;
+}
+
+.route-summary p {
+  margin: 4px 0;
+}

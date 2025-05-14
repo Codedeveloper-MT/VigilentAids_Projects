@@ -7,6 +7,8 @@ import { Capacitor } from '@capacitor/core';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import '../styles/RegisterPage.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({

@@ -1,0 +1,132 @@
+/* Container setup */
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Content area */
+.content-wrapper {
+  text-align: center;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Title styling */
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.title-accent {
+  color: #00c4ff;
+}
+
+.animated-underline {
+  height: 4px;
+  width: 100px;
+  background: #00c4ff;
+  margin: 0 auto 20px;
+  border-radius: 4px;
+  animation: expand 1s ease-out forwards;
+}
+
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+/* Button group */
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px auto;
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+  background-color: #00c4ff;
+  color: #000;
+  border-color: #00c4ff;
+  outline: none;
+}
+
+.button-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.button-text {
+  font-weight: 600;
+}
+
+/* Decorative corners */
+.corner-decoration {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Background pattern */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#444 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+  z-index: 1;
+}

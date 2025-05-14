@@ -4,6 +4,7 @@ import { Capacitor } from "@capacitor/core";
 import { App } from '@capacitor/app';
 import { TextToSpeech } from "@capacitor-community/text-to-speech";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Home.css";
 
 const Home = () => {
   const navigate = useNavigate();

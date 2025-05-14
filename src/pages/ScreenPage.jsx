@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { App } from "@capacitor/app";
 import { TextToSpeech } from "@capacitor-community/text-to-speech";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import "../styles/HomeScreen.css";
+import "../styles/HomeScreen.css";
 
 const ScreenPage = () => {
   const navigate = useNavigate();
